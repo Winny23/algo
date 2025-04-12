@@ -2,7 +2,7 @@ BEGIN
     // Initialisation des compteurs
     length ← 0 INTEGER
     wordCount ← 0 INTEGER
-    consonantCount ← 0 INTEGER
+    voyelleCount ← 0 INTEGER
     previousChar ← ' '  // Pour suivre les séparations de mots
 
     DISPLAY "Entrez une phrase terminée par un point :"
@@ -18,10 +18,10 @@ BEGIN
             wordCount ← wordCount + 1
         ENDIF
         
-        // Vérifier si c'est une consonne
+        // Vérifier si c'est une voyelle
         IF char IN ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z', 
                     'B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'] THEN
-            consonantCount ← consonantCount + 1
+            voyelleCount ← voyelleCount + 1
         ENDIF
         
         previousChar ← char  // Mettre à jour le caractère précédent
@@ -30,5 +30,5 @@ BEGIN
     // Afficher les résultats
     DISPLAY "Nombre de caractères : ", length
     DISPLAY "Nombre de mots : ", wordCount
-    DISPLAY "Nombre de consonnes : ", consonantCount
+    DISPLAY "Nombre de voyelles : ", voyelleCount
 END

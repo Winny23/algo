@@ -1,0 +1,34 @@
+BEGIN
+    // Initialisation des compteurs
+    length ← 0 INTEGER
+    wordCount ← 0 INTEGER
+    consonantCount ← 0 INTEGER
+    previousChar ← ' '  // Pour suivre les séparations de mots
+
+    DISPLAY "Entrez une phrase terminée par un point :"
+    
+    REPEAT
+        READ char  // Lire caractère par caractère
+        length ← length + 1  // Compter les caractères
+        
+        // Compter les mots (un mot commence après un espace)
+        IF char = ' ' AND previousChar ≠ ' ' THEN
+            wordCount ← wordCount + 1
+        ELSE IF char = '.' AND previousChar ≠ ' ' THEN
+            wordCount ← wordCount + 1
+        ENDIF
+        
+        // Vérifier si c'est une consonne
+        IF char IN ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z', 
+                    'B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'] THEN
+            consonantCount ← consonantCount + 1
+        ENDIF
+        
+        previousChar ← char  // Mettre à jour le caractère précédent
+    UNTIL char = '.'  // Arrêter à la fin de la phrase
+
+    // Afficher les résultats
+    DISPLAY "Nombre de caractères : ", length
+    DISPLAY "Nombre de mots : ", wordCount
+    DISPLAY "Nombre de consonnes : ", consonantCount
+END
